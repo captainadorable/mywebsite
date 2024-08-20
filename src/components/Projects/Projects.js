@@ -25,14 +25,14 @@ export default function Projects() {
 
 	return (
 		<div
-			className="flex flex-col h-screen items-center space-y-16 pt-40"
+			className="flex flex-col md:h-screen items-center space-y-16 pt-32 mb-40 lg:mb-0 md:pt-40"
 			id="projects"
 			name="projects"
 		>
 			<div className="text-5xl text-white text-center font-poppins">
 				Projects
 			</div>
-			<div className="grid grid-cols-4 gap-y-8 w-3/4 justify-items-center place-items-center">
+			<div className="grid md:grid-cols-3 lg:grid-cols-4 gap-y-8 lg:w-9/12 justify-items-center place-items-center">
 				{repos.map((repo, id) => {
 					if (id < 8) {
 						return (

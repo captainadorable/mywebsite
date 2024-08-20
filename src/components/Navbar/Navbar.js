@@ -1,5 +1,5 @@
 import { MdOutlineDarkMode } from "react-icons/md";
-import { FaHome, FaMicroblog, FaProjectDiagram } from "react-icons/fa";
+import { FaHome, FaProjectDiagram } from "react-icons/fa";
 import { MdOutlineApps } from "react-icons/md";
 import { useState, useEffect } from "react";
 import NavItems from "./NavItems";
@@ -11,7 +11,7 @@ function Home() {
 	const quotes = [
 		"Rises the moon.",
 		"Church is on fire!",
-		"Come on, it's a silly dream.",
+		"Waltz in Aflat major.",
 	];
 
 	function HandleClick() {
@@ -48,16 +48,13 @@ function Home() {
 				<Link to="#projects" reloadDocument>
 					<NavItems title="Projects" icon={FaProjectDiagram} />
 				</Link>
-				<Link to="/blog">
-					<NavItems title="Blog" icon={FaMicroblog} />
-				</Link>
 				<Link to="/apps">
 					<NavItems title="Mini-apps" icon={MdOutlineApps} />
 				</Link>
 			</div>
 			<div
 				onClick={HandleClick}
-				className="absolute left-1/2 transform -translate-x-1/2 select-none text-4xl text-slate-200 font-righteous rounded-lg transition hover:scale-110 hover:cursor-pointer "
+				className="invisible md:visible text-4xl lg:text-4xl md:text-3xl text-center absolute left-1/2 transform -translate-x-1/2 select-none  text-slate-200 font-righteous rounded-lg transition hover:scale-110 hover:cursor-pointer "
 			>
 				{quotes[quote]}
 			</div>

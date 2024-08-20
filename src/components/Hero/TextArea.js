@@ -3,7 +3,7 @@ import SocialMedia from "./SocialMedia";
 
 export default function TextArea() {
 	return (
-		<div className="flex flex-col w-4/12 space-y-4">
+		<div className="flex flex-col w-2/3 space-y-4 justify-center items-center text-center md:text-left md:w-4/12 md:justify-start md:items-start">
 			<div className="text-4xl text-white font-righteous">Tahir Yusuf Eser</div>
 			<div className="text-zinc-200 font-sans text-lg">
 				Tech enjoyer &{" "}
