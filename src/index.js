@@ -7,11 +7,10 @@ import "react-tippy/dist/tippy.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Index from "./routes/Index";
 import P404 from "./routes/P404";
-
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Index />,
+		element: <Index error="none" />,
 		errorElement: <P404 />,
 	},
 ]);

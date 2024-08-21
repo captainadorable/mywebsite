@@ -9,7 +9,7 @@ export default function SocialMediaCard(props) {
 			distance="15"
 		>
 			<Link to={props.url} target="_blank">
-				<div className="transition hover:scale-110 hover:cursor-pointer">
+				<div className="transition hover:scale-110 hover:cursor-pointer ">
 					{props.icon}
 				</div>
 			</Link>

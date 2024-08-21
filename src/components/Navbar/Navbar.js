@@ -1,11 +1,11 @@
-import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
 import { FaHome, FaProjectDiagram } from "react-icons/fa";
 import { MdOutlineApps } from "react-icons/md";
 import { useState, useEffect } from "react";
 import NavItems from "./NavItems";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Home(props) {
 	// Quote
 	const [quote, setQuote] = useState(0);
 	const quotes = [
@@ -20,26 +20,51 @@ function Home() {
 	}
 	//
 
+	// Dark mode
+	const modeIcons = [MdOutlineDarkMode, MdLightMode];
+
+	function HandleDarkMode() {
+		if (props.theme === 0) {
+			props.setTheme(1);
+		} else if (props.theme === 1) {
+			props.setTheme(0);
+		}
+	}
+	function SetDarkMode() {
+		if (props.theme === 0) {
+			document.documentElement.classList.add("dark");
+		} else {
+			document.documentElement.classList.remove("dark");
+		}
+	}
+
+	useEffect(() => {
+		SetDarkMode();
+		// eslint-disable-next-line
+	}, [props.theme]);
+	//
+
 	// Scroll
-	const [scrolling, setScrolling] = useState(false);
+	const [scrolling, setScrolling] = useState([
+		"dark:bg-dark-prime",
+		"bg-light-prime",
+	]);
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 	const handleScroll = () => {
 		if (window.scrollY > 20) {
-			setScrolling(true);
+			setScrolling(["dark:bg-dark-secondary", "bg-light-secondary"]);
 		} else {
-			setScrolling(false);
+			setScrolling(["dark:bg-dark-prime", "bg-light-prime"]);
 		}
 	};
 	//
 
 	return (
 		<div
-			className={`flex px-6 py-4 mt-4 justify-between items-center rounded-xl fixed top-0 w-11/12 left-1/2 transform -translate-x-1/2 bg-[${
-				scrolling ? "#0f0f0f" : "#09090B"
-			}]`}
+			className={`flex px-6 py-4 mt-4 justify-between items-center rounded-xl fixed top-0 w-11/12 left-1/2 transform -translate-x-1/2  ${scrolling[0]} ${scrolling[1]}`}
 		>
 			<div className="flex space-x-2">
 				<Link to="#home" reloadDocument>
@@ -54,11 +79,15 @@ function Home() {
 			</div>
 			<div
 				onClick={HandleClick}
-				className="invisible md:visible text-4xl lg:text-4xl md:text-3xl text-center absolute left-1/2 transform -translate-x-1/2 select-none  text-slate-200 font-righteous rounded-lg transition hover:scale-110 hover:cursor-pointer "
+				className="invisible md:visible text-4xl lg:text-4xl md:text-3xl text-center absolute left-1/2 transform -translate-x-1/2 select-non bg-light-secondary p-2 text-light-prime dark:bg-transparent dark:text-dark-t1 font-righteous rounded-lg transition hover:scale-110 hover:cursor-pointer "
 			>
 				{quotes[quote]}
 			</div>
-			<NavItems title="Theme" icon={MdOutlineDarkMode} />
+			<NavItems
+				title="Theme"
+				icon={modeIcons[props.theme]}
+				click={HandleDarkMode}
+			/>
 		</div>
 	);
 }

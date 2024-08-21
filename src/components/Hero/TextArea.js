@@ -4,11 +4,13 @@ import SocialMedia from "./SocialMedia";
 export default function TextArea() {
 	return (
 		<div className="flex flex-col w-2/3 space-y-4 justify-center items-center text-center md:text-left md:w-4/12 md:justify-start md:items-start">
-			<div className="text-4xl text-white font-righteous">Tahir Yusuf Eser</div>
-			<div className="text-zinc-200 font-sans text-lg">
+			<div className="text-4xl text-light-t1 dark:text-dark-t1 font-righteous">
+				Tahir Yusuf Eser
+			</div>
+			<div className="text-light-t2 dark:text-dark-t2 font-sans text-lg">
 				Tech enjoyer &{" "}
 				<Link to="https://ehb.itu.edu.tr/" target="_blank">
-					<span className="text-yellow-500 hover:cursor-pointer">
+					<span className="text-light-tc2 dark:text-dark-tc2 hover:cursor-pointer">
 						İTÜ ECE/EHB
 					</span>{" "}
 				</Link>

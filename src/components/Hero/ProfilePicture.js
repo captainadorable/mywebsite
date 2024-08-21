@@ -17,7 +17,6 @@ export default function ProfilePicture() {
 					method: "get",
 				}).then((response) => {
 					let data = response.data.data;
-					console.log(data);
 					if (data.listening_to_spotify) {
 						setSpotify(`${data.spotify.artist} - ${data.spotify.song}`);
 					} else {
@@ -51,13 +50,18 @@ export default function ProfilePicture() {
 	function Activity() {
 		return spotify ? (
 			<>
-				<FaSpotify size="20" color="#66CC99" />
-				<div className="text-[#66CC99] font-poppins">{spotify}</div>
+				<FaSpotify
+					size="20"
+					className="text-light-prime dark:text-dark-spotify"
+				/>
+				<div className="text-light-prime dark:text-dark-spotify font-poppins">
+					{spotify}
+				</div>
 			</>
 		) : (
 			<>
 				<GoDotFill size="20" color={status[1]} />
-				<div className={`text-zinc-400 font-poppins`}>{status[0]}</div>
+				<div className={`text-dark-t2 font-poppins`}>{status[0]}</div>
 			</>
 		);
 	}
@@ -77,7 +81,7 @@ export default function ProfilePicture() {
 				position="bottom"
 				trigger="mouseenter"
 			>
-				<div className="flex items-center space-x-1 bg-[#161616] p-2 rounded-lg transition hover:scale-105 hover:cursor-pointer">
+				<div className="flex items-center space-x-1 bg-light-secondary dark:bg-dark-secondary p-2 rounded-lg transition hover:scale-105 hover:cursor-pointer">
 					<Activity />
 				</div>
 			</Tooltip>

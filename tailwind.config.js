@@ -1,5 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
+
 module.exports = {
+	darkMode: "selector",
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
 	theme: {
 		fontFamily: {
@@ -9,6 +11,34 @@ module.exports = {
 			poppins: ["poppins", "ui-sans-serif", "system-ui"],
 			righteous: ["righteous", "ui-sans-serif", "system-ui"],
 			amsterdam: ["New Amsterdam", "ui-sans-serif", "system-ui"],
+		},
+		colors: {
+			transparent: "transparent",
+			"dark-prime": "#09090B",
+			"dark-secondary": "#1e1e1e",
+			"dark-t1": "#FFFFFF",
+			"dark-t2": "#E2E8F0",
+			"dark-tc1": "#0284C7",
+			"dark-tc2": "#F9DD53",
+			"dark-tc3": "#5496EF",
+			"dark-tc4": "#AEC841",
+			"dark-spotify": "#66CC99",
+			"dark-instagram": "#EE00E2",
+			"dark-discord": "#407CFF",
+			"dark-github": "#FFFFFF",
+			"light-prime": "#FAF3F0",
+			"light-secondary": "#ff6288",
+			"light-t0": "#282828",
+			"light-t1": "#000000",
+			"light-t2": "#222222",
+			"light-tc1": "#ff164e",
+			"light-tc2": "#ff3b6a",
+			"light-tc3": "#e5ff0c",
+			"light-tc4": "#FFDBAA",
+			"light-spotify": "#FAF3F0",
+			"light-instagram": "#FAF3F0",
+			"light-discord": "#FAF3F0",
+			"light-github": "#FAF3F0",
 		},
 		extend: {},
 	},

@@ -29,7 +29,7 @@ export default function Projects() {
 			id="projects"
 			name="projects"
 		>
-			<div className="text-5xl text-white text-center font-poppins">
+			<div className="text-5xl dark:text-dark-t1 text-center font-righteous">
 				Projects
 			</div>
 			<div className="grid md:grid-cols-3 lg:grid-cols-4 gap-y-8 lg:w-9/12 justify-items-center place-items-center">
