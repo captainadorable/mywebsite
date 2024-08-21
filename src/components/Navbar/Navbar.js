@@ -22,19 +22,26 @@ function Home(props) {
 
 	// Dark mode
 	const modeIcons = [MdOutlineDarkMode, MdLightMode];
-
 	function HandleDarkMode() {
-		if (props.theme === 0) {
+		if (localStorage.getItem("theme") === "dark") {
+			localStorage.setItem("theme", "light");
 			props.setTheme(1);
-		} else if (props.theme === 1) {
+		} else if (localStorage.getItem("theme") === "light") {
+			localStorage.setItem("theme", "dark");
 			props.setTheme(0);
 		}
 	}
 	function SetDarkMode() {
-		if (props.theme === 0) {
+		if (!localStorage.getItem("theme")) {
+			localStorage.setItem("theme", "dark");
+		}
+
+		if (localStorage.getItem("theme") === "dark") {
 			document.documentElement.classList.add("dark");
+			props.setTheme(0);
 		} else {
 			document.documentElement.classList.remove("dark");
+			props.setTheme(1);
 		}
 	}
 
@@ -79,7 +86,7 @@ function Home(props) {
 			</div>
 			<div
 				onClick={HandleClick}
-				className="invisible md:visible text-4xl lg:text-4xl md:text-3xl text-center absolute left-1/2 transform -translate-x-1/2 select-non bg-light-secondary p-2 text-light-prime dark:bg-transparent dark:text-dark-t1 font-righteous rounded-lg transition hover:scale-110 hover:cursor-pointer "
+				className="invisible md:visible text-4xl lg:text-4xl md:text-3xl text-center absolute left-1/2 transform -translate-x-1/2 select-none bg-light-secondary p-2 text-light-prime dark:bg-transparent dark:text-dark-t1 font-righteous rounded-lg transition hover:scale-110 hover:cursor-pointer "
 			>
 				{quotes[quote]}
 			</div>
