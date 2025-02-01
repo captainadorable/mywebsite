@@ -25,7 +25,7 @@ export default function Projects() {
 
 	return (
 		<div
-			className="flex flex-col md:h-screen items-center space-y-16 pt-32 mb-40 lg:mb-0 md:pt-40"
+			className="flex flex-col items-center space-y-16 pt-32 md:pt-40 mb-24"
 			id="projects"
 			name="projects"
 		>
@@ -39,7 +39,7 @@ export default function Projects() {
 							<ProjectCard
 								key={id}
 								title={repo.name}
-								desc={repo.description}
+								desc={repo.description ? repo.description.slice(0, 60) + "..." : ""}
 								lang={repo.language}
 								stars={repo.stargazers_count}
 								url={repo.html_url}
