@@ -9,35 +9,8 @@ export default function Projects() {
     const handleRequest = async () => {
       try {
         await axios({
-          url: "https://api.github.com/graphql",
-          // add bearer token
-          headers: {
-            Authorization: `bearer ${process.env.REACT_APP_GITHUB_TOKEN }`,
-          },
-          // add body as above 
-          data: {
-            query: `
-                  {
-                    user(login: "captainadorable") {
-                      pinnedItems(first: 6, types: REPOSITORY) {
-                        totalCount
-                        nodes {
-                          ... on Repository {
-                            name
-                            description
-                            url
-                            stargazerCount
-                            primaryLanguage {
-                              name
-                              color
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }`,
-          },
-          method: "post",
+          url: "/api/github",
+          method: "get",
         }).then((response) => {
           const data = response.data.data;
           setRepos(data.user.pinnedItems.nodes);
