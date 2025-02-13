@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ProjectCard(props) {
 	return (
 		<div className="flex flex-col space-y-4 p-8 w-10/12 h-64 rounded-xl bg-light-secondary dark:bg-dark-secondary">
-			<div className="text-light-prime dark:text-dark-t1 font-poppins text-xl font-bold truncate pb-2">
+			<div style={{color: props.langColor}} className={`font-poppins text-xl font-bold truncate pb-2`}>
 				{props.title}
 			</div>
 			<div className="font-poppins text-light-prime dark:text-dark-t2 h-2/3 hyphens-auto">
